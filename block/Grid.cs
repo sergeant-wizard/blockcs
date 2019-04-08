@@ -1,21 +1,43 @@
-﻿using System;
+﻿using System.Collections.Generic;
 namespace block
 {
     public class Grid
     {
         public Grid()
         {
+            AddRows();
         }
-        public void Occupy(int row, int col)
+        private void AddRows()
         {
-            isOccupied[row, col] = true;
+            while (isOccupied.Count < MaxRows)
+            {
+                isOccupied.Add(NewRow());
+            }
         }
-        public void Vacant(int row, int col)
+        private List<bool> NewRow()
         {
-            isOccupied[row, col] = false;
+            return new List<bool>(new bool[MaxCols]);
+        }
+        public void Occupy(Position position)
+        {
+            isOccupied[position.Row][position.Col] = true;
+        }
+        public void Vacant(Position position)
+        {
+            isOccupied[position.Row][position.Col] = false;
+        }
+        public void Update()
+        {
+            isOccupied.RemoveAll(row => row.TrueForAll(col => col));
+            AddRows();
         }
         public const int MaxRows = 20;
         public const int MaxCols = 10;
-        private readonly bool[,] isOccupied = new bool[MaxRows, MaxCols];
+        private readonly List<List<bool>> isOccupied = new List<List<bool>>(MaxRows);
+
+        public bool IsOccupied(int row, int col)
+        {
+            return isOccupied[row][col];
+        }
     }
 }

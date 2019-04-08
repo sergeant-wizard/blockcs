@@ -8,18 +8,20 @@ namespace block
         [Test()]
         public void TestTop()
         {
-            Position grid = new Position(0, 0);
-            Assert.False(grid.MoveLeft());
-            Assert.True(grid.MoveRight());
-            Assert.False(grid.MoveDown());
+            Position position = new Position(0, 0);
+            Grid grid = new Grid();
+            Assert.False(position.MoveLeft(grid));
+            Assert.True(position.MoveRight(grid));
+            Assert.False(position.MoveDown(grid));
         }
         [Test()]
         public void TestBottom()
         {
-            Position grid = new Position(Grid.MaxRows, Grid.MaxCols);
-            Assert.True(grid.MoveLeft());
-            Assert.False(grid.MoveRight());
-            Assert.True(grid.MoveDown());
+            Position position = new Position(Grid.MaxRows, Grid.MaxCols);
+            Grid grid = new Grid();
+            Assert.True(position.MoveLeft(grid));
+            Assert.False(position.MoveRight(grid));
+            Assert.True(position.MoveDown(grid));
         }
     }
 }

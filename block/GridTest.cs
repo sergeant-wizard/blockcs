@@ -2,37 +2,23 @@
 using System;
 namespace block
 {
-    class Hoge
-    {
-        int _x = 0;
-        public Hoge()
-        {
-            Console.Write("created");
-        }
-        ~Hoge()
-        {
-            Console.Write("destroyed");
-        }
-        public ref int Get()
-        {
-            return ref _x;
-        }
-    }
     [TestFixture()]
     public class GridTest
     {
         [Test()]
         public void TestCase()
         {
-            ref int foo()
+            Grid grid = new Grid();
+            for (int col = 0; col < Grid.MaxCols; col++)
             {
-                Hoge hoge = new Hoge();
-                return ref hoge.Get();
+                Position position = new Position(0, col);
+                grid.Occupy(position);
             }
-            Console.Write("before foo");
-            foo();
-            Console.Write("after foo");
-            foo();
+            grid.Occupy(new Position(1, 0));
+            grid.Update();
+
+            Assert.True(grid.IsOccupied(0, 0));
+            Assert.False(grid.IsOccupied(0, 1));
         }
     }
 }

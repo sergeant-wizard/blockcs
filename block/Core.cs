@@ -12,7 +12,11 @@ namespace block
         }
         public void Update()
         {
-            block.Update();
+            bool isUpdated = block.Update(grid);
+            if (isUpdated)
+            {
+                block.Land(grid);
+            }
         }
         private Grid grid;
         private Block block;
