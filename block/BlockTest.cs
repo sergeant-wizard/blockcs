@@ -9,7 +9,11 @@ namespace block
         public void TestCase()
         {
             Block blk = new Block();
-            Assert.AreEqual(blk.Update(), 1);
+            for (int i = 0; i < Grid.MaxRows - 1; i++)
+            {
+                Assert.True(blk.Update());
+            }
+            Assert.False(blk.Update());
         }
     }
 }
