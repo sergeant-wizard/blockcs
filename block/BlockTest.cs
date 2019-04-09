@@ -5,38 +5,22 @@ namespace block
     [TestFixture()]
     public class BlockTest
     {
-        public class Hoge
-        {
-            public Hoge()
-            {
-            }
-            public Hoge(Hoge other)
-            {
-                System.Console.Write("copied");
-            }
-        }
-        public void SomeMethod(Hoge hoge)
-        {
-            // System.Console.Write("something");
-        }
-
         [Test()]
-        public void TestCase()
+        public void TestUpdate()
         {
-            var hoge1 = new Hoge();
-            var hoge2 = new Hoge();
-            System.Collections.Generic.List<Hoge> hoge = new System.Collections.Generic.List<Hoge>(new Hoge[] { hoge1, hoge2 });
-            hoge.Remove(hoge1);
-            hoge.Remove(hoge2);
-            System.Console.Write(hoge.Count);
-            SomeMethod(new Hoge());
             Block blk = new Block();
             Grid grid = new Grid();
-            for (int i = 0; i < Grid.MaxRows - 1; i++)
+            for (int i = 0; i < Grid.MaxRows - 2; i++)
             {
                 Assert.True(blk.Update(grid));
             }
             Assert.False(blk.Update(grid));
+
+            blk.Land(grid);
+            Assert.True(grid.IsOccupied(0, 3));
+            Assert.True(grid.IsOccupied(0, 4));
+            Assert.True(grid.IsOccupied(1, 3));
+            Assert.True(grid.IsOccupied(1, 4));
         }
     }
 }

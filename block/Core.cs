@@ -18,7 +18,7 @@ namespace block
                 block.Land(grid);
             }
         }
-        private Grid grid;
+        private Grid grid = new Grid();
         private Block block;
     }
 }

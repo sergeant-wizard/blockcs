@@ -37,6 +37,14 @@ namespace block
 
         public bool IsOccupied(int row, int col)
         {
+            if (row < 0)
+            {
+                return true;
+            }
+            if (col < 0 || MaxCols <= col)
+            {
+                return true;
+            }
             return isOccupied[row][col];
         }
     }

@@ -10,18 +10,18 @@ namespace block
         {
             Position position = new Position(0, 0);
             Grid grid = new Grid();
-            Assert.False(position.MoveLeft(grid));
-            Assert.True(position.MoveRight(grid));
-            Assert.False(position.MoveDown(grid));
+            Assert.True(position.MoveLeft().IsOccupied(grid));
+            Assert.False(position.MoveRight().IsOccupied(grid));
+            Assert.True(position.MoveDown().IsOccupied(grid));
         }
         [Test()]
         public void TestBottom()
         {
-            Position position = new Position(Grid.MaxRows, Grid.MaxCols);
+            Position position = new Position(Grid.MaxRows - 1, Grid.MaxCols - 1);
             Grid grid = new Grid();
-            Assert.True(position.MoveLeft(grid));
-            Assert.False(position.MoveRight(grid));
-            Assert.True(position.MoveDown(grid));
+            Assert.True(position.MoveRight().IsOccupied(grid));
+            Assert.False(position.MoveLeft().IsOccupied(grid));
+            Assert.False(position.MoveDown().IsOccupied(grid));
         }
     }
 }

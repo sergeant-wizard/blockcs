@@ -1,53 +1,38 @@
 ﻿using System;
 namespace block
 {
-    public class Position
+    public struct Position
     {
+        public Position(Position other)
+        {
+            _row = other._row;
+            _col = other._col;
+        }
         public Position(int row, int col)
         {
-            this.row = row;
-            this.col = col;
+            this._row = row;
+            this._col = col;
         }
-        public bool MoveRight(Grid grid)
+        public Position MoveRight()
         {
-            if (col == Grid.MaxCols - 1 || grid.IsOccupied(row, col + 1))
-            {
-                return false;
-            }
-            else
-            {
-                col++;
-                return true;
-            }
+            return new Position(_row, _col + 1);
         }
-        public bool MoveLeft(Grid grid)
+        public Position MoveLeft()
         {
-            if (col == 0 || grid.IsOccupied(row, col - 1))
-            {
-                return false;
-            }
-            else
-            {
-                col--;
-                return true;
-            }
+            return new Position(_row, _col - 1);
         }
-        public bool MoveDown(Grid grid)
+        public Position MoveDown()
         {
-            if (row == 0 || grid.IsOccupied(row - 1, col))
-            {
-                return false;
-            }
-            else
-            {
-                row--;
-                return true;
-            }
+            return new Position(_row - 1, _col);
         }
-        private int row;
-        private int col;
+        public bool IsOccupied(Grid grid)
+        {
+            return grid.IsOccupied(_row, _col);
+        }
+        private int _row;
+        private int _col;
 
-        public int Row { get => row; }
-        public int Col { get => col; }
+        public int Row { get => _row; }
+        public int Col { get => _col; }
     }
 }
