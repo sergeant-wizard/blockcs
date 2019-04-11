@@ -6,10 +6,10 @@ namespace block
     {
         public Block()
         {
-            positions.Add(new Position(Grid.MaxRows - 1, 3));
             positions.Add(new Position(Grid.MaxRows - 1, 4));
-            positions.Add(new Position(Grid.MaxRows - 2, 3));
+            positions.Add(new Position(Grid.MaxRows - 1, 5));
             positions.Add(new Position(Grid.MaxRows - 2, 4));
+            positions.Add(new Position(Grid.MaxRows - 2, 5));
         }
         public bool Update(Grid grid)
         {

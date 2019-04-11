@@ -14,8 +14,8 @@ namespace block
                     button,
                     (uint)(position.Col),
                     (uint)(position.Col + 1),
-                    (uint)(position.Row),
-                    (uint)(position.Row + 1)
+                    (uint)(Grid.MaxRows - position.Row - 1),
+                    (uint)(Grid.MaxRows - position.Row)
                 );
                 ChangeColor(position, "red");
             }
