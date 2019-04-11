@@ -13,17 +13,18 @@ public partial class MainWindow
 		this.Title = global::Mono.Unix.Catalog.GetString("MainWindow");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.table1 = new global::Gtk.Table(((uint)(20)), ((uint)(10)), true);
+		this.table1 = new global::Gtk.Table(((uint)(20)), ((uint)(10)), false);
 		this.table1.Name = "table1";
 		this.table1.RowSpacing = ((uint)(6));
 		this.table1.ColumnSpacing = ((uint)(6));
+		this.table1.BorderWidth = ((uint)(1));
 		this.Add(this.table1);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
-		this.DefaultWidth = 318;
-		this.DefaultHeight = 671;
+		this.DefaultWidth = 312;
+		this.DefaultHeight = 691;
 		this.Show();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 	}

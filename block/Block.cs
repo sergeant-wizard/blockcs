@@ -32,5 +32,7 @@ namespace block
         }
         private List<Position> positions = new List<Position>();
         public const int NumBlocks = 4;
+
+        public List<Position> Positions { get => positions; }
     }
 }
