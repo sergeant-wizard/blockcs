@@ -7,7 +7,7 @@ namespace block
     {
         public Block()
         {
-            _blockType = BlockType.T;
+            _blockType = BlockType.O;
             positions = new List<Position>(_initialPositions[_blockType]);
         }
         public bool OnDown(Grid grid)

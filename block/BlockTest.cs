@@ -17,10 +17,10 @@ namespace block
             Assert.False(blk.OnDown(grid));
 
             blk.Land(grid);
-            Assert.True(grid.IsOccupied(0, 3));
             Assert.True(grid.IsOccupied(0, 4));
-            Assert.True(grid.IsOccupied(1, 3));
+            Assert.True(grid.IsOccupied(0, 5));
             Assert.True(grid.IsOccupied(1, 4));
+            Assert.True(grid.IsOccupied(1, 5));
         }
     }
 }
