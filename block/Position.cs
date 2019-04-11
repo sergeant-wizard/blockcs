@@ -25,6 +25,18 @@ namespace block
         {
             return new Position(_row - 1, _col);
         }
+        public Position RotateRight(Position center)
+        {
+            int diffX = _row - center.Row;
+            int diffY = _col - center.Col;
+            return new Position(center.Row - diffY, center.Col + diffX);
+        }
+        public Position RotateLeft(Position center)
+        {
+            int diffX = _row - center.Row;
+            int diffY = _col - center.Col;
+            return new Position(center.Row + diffY, center.Col - diffX);
+        }
         public bool IsOccupied(Grid grid)
         {
             return grid.IsOccupied(_row, _col);

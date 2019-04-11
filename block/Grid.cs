@@ -37,7 +37,7 @@ namespace block
 
         public bool IsOccupied(int row, int col)
         {
-            if (row < 0)
+            if (row < 0 || MaxRows <= row)
             {
                 return true;
             }

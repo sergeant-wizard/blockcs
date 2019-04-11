@@ -26,6 +26,13 @@ public partial class MainWindow : Gtk.Window
             case Gdk.Key.Right:
                 _core.OnRight();
                 break;
+            // nice left hand positions for dvorak
+            case Gdk.Key.j:
+                _core.OnRotateRight();
+                break;
+            case Gdk.Key.q:
+                _core.OnRotateLeft();
+                break;
         }
 
         return base.OnKeyPressEvent(evnt);

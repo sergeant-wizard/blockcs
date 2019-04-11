@@ -37,6 +37,16 @@ namespace block
             block.OnRight(grid);
             Render();
         }
+        public void OnRotateRight()
+        {
+            block.OnRotateRight(grid);
+            Render();
+        }
+        public void OnRotateLeft()
+        {
+            block.OnRotateLeft(grid);
+            Render();
+        }
         public void Update()
         {
             OnDown();
