@@ -18,13 +18,23 @@ namespace block
         }
         public void OnDown()
         {
-            bool isUpdated = block.Update(grid);
+            bool isUpdated = block.OnDown(grid);
             if (!isUpdated)
             {
                 block.Land(grid);
                 grid.Update();
                 StartCycle();
             }
+            Render();
+        }
+        public void OnLeft()
+        {
+            block.OnLeft(grid);
+            Render();
+        }
+        public void OnRight()
+        {
+            block.OnRight(grid);
             Render();
         }
         public void Update()

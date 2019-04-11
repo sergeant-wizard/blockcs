@@ -11,10 +11,23 @@ namespace block
             positions.Add(new Position(Grid.MaxRows - 2, 4));
             positions.Add(new Position(Grid.MaxRows - 2, 5));
         }
-        public bool Update(Grid grid)
+        public bool OnDown(Grid grid)
+        {
+            return Update(grid, p => p.MoveDown());
+        }
+        public bool OnLeft(Grid grid)
+        {
+            return Update(grid, p => p.MoveLeft());
+        }
+        public bool OnRight(Grid grid)
+        {
+            return Update(grid, p => p.MoveRight());
+        }
+        private bool Update(Grid grid, System.Func<Position, Position> operation)
         {
             List<Position> newPositions = positions.Select(
-            p => p.MoveDown()).ToList();
+                p => operation(p)
+            ).ToList();
             bool violation = newPositions.Any(p => p.IsOccupied(grid));
             if (violation)
             {

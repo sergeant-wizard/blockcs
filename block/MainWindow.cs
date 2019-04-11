@@ -15,10 +15,19 @@ public partial class MainWindow : Gtk.Window
 
     protected override bool OnKeyPressEvent(EventKey evnt)
     {
-        if (evnt.Key == Gdk.Key.Down)
+        switch (evnt.Key)
         {
-            _core.OnDown();
+            case Gdk.Key.Down:
+                _core.OnDown();
+                break;
+            case Gdk.Key.Left:
+                _core.OnLeft();
+                break;
+            case Gdk.Key.Right:
+                _core.OnRight();
+                break;
         }
+
         return base.OnKeyPressEvent(evnt);
     }
 

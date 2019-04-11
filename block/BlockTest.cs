@@ -12,9 +12,9 @@ namespace block
             Grid grid = new Grid();
             for (int i = 0; i < Grid.MaxRows - 2; i++)
             {
-                Assert.True(blk.Update(grid));
+                Assert.True(blk.OnDown(grid));
             }
-            Assert.False(blk.Update(grid));
+            Assert.False(blk.OnDown(grid));
 
             blk.Land(grid);
             Assert.True(grid.IsOccupied(0, 3));
