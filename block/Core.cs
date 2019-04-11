@@ -16,6 +16,7 @@ namespace block
             if (isUpdated)
             {
                 block.Land(grid);
+                grid.Update();
             }
         }
         private Grid grid = new Grid();
