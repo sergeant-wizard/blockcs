@@ -74,6 +74,8 @@
     <Compile Include="GridTest.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Core.cs" />
+    <Compile Include="IRenderer.cs" />
+    <Compile Include="GTKRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
