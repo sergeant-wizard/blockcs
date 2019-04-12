@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -67,14 +67,6 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Block.cs" />
-    <Compile Include="BlockTest.cs" />
-    <Compile Include="Position.cs" />
-    <Compile Include="PositionTest.cs" />
-    <Compile Include="GridTest.cs" />
-    <Compile Include="Grid.cs" />
-    <Compile Include="Core.cs" />
-    <Compile Include="IRenderer.cs" />
     <Compile Include="GTKRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
