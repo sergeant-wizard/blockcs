@@ -25,17 +25,22 @@ namespace block
         {
             return new Position(_row - 1, _col);
         }
-        public Position RotateRight(Position center)
+        private Position Rotate(Position center, int sign)
         {
             int diffX = _row - center.Row;
             int diffY = _col - center.Col;
-            return new Position(center.Row - diffY, center.Col + diffX);
+            return new Position(
+                center.Row - diffY * sign,
+                center.Col + diffX * sign
+            );
+        }
+        public Position RotateRight(Position center)
+        {
+            return Rotate(center, 1);
         }
         public Position RotateLeft(Position center)
         {
-            int diffX = _row - center.Row;
-            int diffY = _col - center.Col;
-            return new Position(center.Row + diffY, center.Col - diffX);
+            return Rotate(center, -1);
         }
         public bool IsOccupied(Grid grid)
         {
